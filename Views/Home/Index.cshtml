@@ -1,0 +1,40 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section heads
+{
+
+<script type="text/javascript" src="~/Scripts/TypeScript/CustomerModule.js"></script>
+<script type="text/javascript" src="~/Scripts/TypeScript/CustomerServiceModule.js"></script>
+<script type="text/javascript" src="~/Scripts/TypeScript/CustomerUIModule.js"></script>
+<script type="text/javascript" src="~/Scripts/TypeScript/main.js"></script>
+
+}
+
+<div class="container">
+    <table class="table table-striped table-bordered table-hover table-condensed">
+        <thead>
+            <tr>
+                <th>Customer ID</th>
+                <th>Company Name</th>
+                <th>Contact Name</th>
+                <th>Country</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody data-bind="foreach: customers">
+            <tr>
+                <td><input type="text" class="form-control" size="5" data-bind="value: CustomerID" /></td>
+                <td><input type="text" class="form-control" data-bind="value: CompanyName" /></td>
+                <td><input type="text" class="form-control" data-bind="value: ContactName" /></td>
+                <td><input type="text" class="form-control" data-bind="value: Country" /></td>
+                <td>
+                    <input type="button" class="form-control" value="Insert" data-bind='click: $root.AddCustomer' />
+                    <input type="button" class="form-control" value="Delete" data-bind='click: $root.DeleteCustomer' />
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
